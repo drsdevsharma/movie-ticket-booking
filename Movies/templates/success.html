@@ -1,0 +1,22 @@
+{% extends "user_base.html" %}
+
+    {% block title %}
+      Success
+    {% endblock title %}
+    {% block links %}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    {% endblock links %}
+
+    {% block Card_body %}
+    
+        <div class="card" style="width: 400px;">
+            <div class="card-header">
+                Seat Booking Success!
+            </div>
+            <ul class="list-group list-group-flush">
+                        <li class="list-group-item"> {{Seats}}</li>
+              
+            </ul>
+        </div>
+      
+    {% endblock Card_body %}

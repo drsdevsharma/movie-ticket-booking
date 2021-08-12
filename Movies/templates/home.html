@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+    {% block title %}
+      Movie Ticket Booking 
+    {% endblock title %}   
+
+    {% load static %}
+
+    {% block links %}
+        <!-- Template CSS -->
+	    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+        <!-- Template CSS -->
+        
+    {% endblock links %} 
+
+
+{% block content %}
+
+<body>
+
+	<h3>Popular Movies</h3>
+	{% for movie in movies %}		
+		<div class="responsive">
+			<div class="gallery">
+				<a href="/select_movie/{{movie.movieName}}/">
+					<img src = "{{ movie.movieImage.url }}" width="300" height="350">
+				</a>
+				<div class="desc"><b>{{ movie.movieName }}</b></div>
+			</div>
+		</div>
+
+	{% endfor %}			
+
+{% endblock content %}
+

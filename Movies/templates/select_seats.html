@@ -1,0 +1,42 @@
+{% extends "User_base.html" %}
+    {% block title %}
+    Ticket Booking
+    {% endblock title %}
+
+    {% load static %}
+
+    {% block links %}
+        <link rel="stylesheet" href="{% static 'css/index.css' %}" type="text/css" >
+        <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+
+
+    {% endblock links %}
+
+
+    {% block Card_body %}
+
+    <div class="card text-dark bg-warning mb-3" style="max-width: 500px;">
+        <form name="Seat Booking" method="POST" action="/select_seat/" >
+            {% csrf_token %}
+        
+            <div class="card-header">
+                <h2>Available Seats</h2>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Seats</h5>
+                {% for i in Seat %}
+                
+                    <input type="checkbox" class="Checkb" name = {{i}} value = "seat {{i}}"">
+                {% endfor %}
+                
+                {% if error %}
+                    <h4 style="color: red;">{{ error }}</h4>
+                {% endif %}
+                <div class="form-group">
+                    <br>
+                    <input type="submit" value="Book" class="btn float-right btn-danger">
+                </div>
+            </div>
+    </div>
+            
+    {% endblock Card_body %}
